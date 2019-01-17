@@ -1,0 +1,174 @@
+.bg-add {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -70px -10px;
+}
+
+.bg-aite {
+    width: 22px; height: 22px;
+    background: url('../images/css_sprites.png') -240px -140px;
+}
+
+.bg-back {
+    width: 22px; height: 21px;
+    background: url('../images/css_sprites.png') -10px -238px;
+}
+
+.bg-back_blue {
+    width: 18px; height: 18px;
+    background: url('../images/css_sprites.png') -284px -50px;
+}
+
+.bg-banjie {
+    width: 22px; height: 20px;
+    background: url('../images/css_sprites.png') -284px -10px;
+}
+
+.bg-Checkbox_Copy {
+    width: 14px; height: 14px;
+    background: url('../images/css_sprites.png') -284px -230px;
+}
+
+.bg-date {
+    width: 12px; height: 12px;
+    background: url('../images/css_sprites.png') -190px -158px;
+}
+
+.bg-dropdown_arrow_copy {
+    width: 4px; height: 6px;
+    background: url('../images/css_sprites.png') -10px -279px;
+}
+
+.bg-dropdown_arrow {
+    width: 6px; height: 4px;
+    background: url('../images/css_sprites.png') -140px -238px;
+}
+
+.bg-eidt {
+    width: 18px; height: 18px;
+    background: url('../images/css_sprites.png') -284px -88px;
+}
+
+.bg-flie {
+    width: 24px; height: 19px;
+    background: url('../images/css_sprites.png') -52px -238px;
+}
+
+.bg-fujian {
+    width: 14px; height: 16px;
+    background: url('../images/css_sprites.png') -284px -126px;
+}
+
+.bg-Group_6_Copy_2 {
+    width: 36px; height: 36px;
+    background: url('../images/css_sprites.png') -70px -130px;
+}
+
+.bg-Group_32_Copy_3 {
+    width: 28px; height: 28px;
+    background: url('../images/css_sprites.png') -190px -110px;
+}
+
+.bg-Group_32_Copy_10 {
+    width: 28px; height: 28px;
+    background: url('../images/css_sprites.png') -10px -190px;
+}
+
+.bg-Group_36_Copy_2 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -10px -130px;
+}
+
+.bg-Group_36_Copy_3 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -130px -70px;
+}
+
+.bg-Group_36_Copy_4 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -10px -10px;
+}
+
+.bg-Group_36_Copy_5 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -130px -10px;
+}
+
+.bg-Group_36 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -70px -70px;
+}
+
+.bg-Group_37 {
+    width: 30px; height: 30px;
+    background: url('../images/css_sprites.png') -190px -60px;
+}
+
+.bg-Group_38 {
+    width: 29px; height: 26px;
+    background: url('../images/css_sprites.png') -108px -190px;
+}
+
+.bg-Group_39_Copy_3 {
+    width: 30px; height: 30px;
+    background: url('../images/css_sprites.png') -126px -130px;
+}
+
+.bg-groups {
+    width: 24px; height: 22px;
+    background: url('../images/css_sprites.png') -240px -54px;
+}
+
+.bg-groupz {
+    width: 22px; height: 22px;
+    background: url('../images/css_sprites.png') -240px -182px;
+}
+
+.bg-linenormal_copy_6 {
+    width: 14px; height: 14px;
+    background: url('../images/css_sprites.png') -284px -162px;
+}
+
+.bg-lishi {
+    width: 30px; height: 30px;
+    background: url('../images/css_sprites.png') -190px -10px;
+}
+
+.bg-Messagebox_close {
+    width: 14px; height: 14px;
+    background: url('../images/css_sprites.png') -284px -196px;
+}
+
+.bg-msgBoxActive {
+    width: 30px; height: 26px;
+    background: url('../images/css_sprites.png') -58px -190px;
+}
+
+.bg-needsend {
+    width: 22px; height: 24px;
+    background: url('../images/css_sprites.png') -240px -96px;
+}
+
+.bg-Rectangle_5_Copy_96 {
+    width: 40px; height: 40px;
+    background: url('../images/css_sprites.png') -10px -70px;
+}
+
+.bg-search_copy_2 {
+    width: 14px; height: 14px;
+    background: url('../images/css_sprites.png') -201px -190px;
+}
+
+.bg-shuiying {
+    width: 24px; height: 24px;
+    background: url('../images/css_sprites.png') -157px -190px;
+}
+
+.bg-shuiying2 {
+    width: 24px; height: 24px;
+    background: url('../images/css_sprites.png') -240px -10px;
+}
+
+.bg-updateimg {
+    width: 24px; height: 18px;
+    background: url('../images/css_sprites.png') -96px -238px;
+}

@@ -1,0 +1,232 @@
+//公共样式
+blockquote,
+body,
+button,
+center,
+dd,
+div,
+dl,
+dt,
+fieldset,
+form,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+input,
+li,
+ol,
+p,
+td,
+textarea,
+th,
+tr,
+ul {
+  padding: 0;
+  margin: 0;
+}
+html,body{
+  height: 100%;
+}
+body {
+  // user-select: none;
+  background-color: #F0F2F5;
+  user-select: none;
+}
+article,
+aside,
+footer,
+header,
+hgroup,
+main,
+nav,
+section {
+  display: block;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+fieldset,
+img {
+  border: 0;
+}
+button,
+input,
+select,
+textarea {
+  font-size: 12px;
+}
+img,
+input,
+select {
+  vertical-align: middle;
+}
+li,
+ul {
+  list-style: none;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-size: 100%;
+}
+.left {
+  float: left;
+}
+.right {
+  float: right;
+}
+.clearfix::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.clearfix {
+  zoom: 1;
+}
+//
+.effect {
+  position: relative;
+  box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+}
+.effect:after,
+.effect:before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  bottom: 0px;
+  left: 20px;
+  right: 20px;
+  border-radius: 100px/10px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: -2;
+}
+/*弹窗*/
+.dialog-bule,.dialog-white{
+  width: 120px;
+  height:  36px;
+  box-sizing: border-box;
+  font-size: 14px;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  cursor: pointer;
+}
+.dialog-white{
+  background-color: white;
+  color: #5C6466;
+  border: 1px solid #CCCDD0;
+}
+.dialog-bule{
+ background-color: #267AFC;
+ color: #FFFFFF;
+ margin-left: 36px;
+}
+.dialog-disabled{
+  background-color: #B3B3B4;
+}
+.btn-group{
+   float: left;
+   position: relative;
+   left: 50%;
+   transform: translate(-50%,0);
+}
+.el-dialog__body{
+ overflow: hidden;
+ padding: 20px;
+}
+.el-dialog__header{
+ border-bottom:  1px solid #EFEFEF;
+}
+.el-dialog__title{
+font-size: 16px;
+color: #2D3132;
+}
+/*弹窗*/
+// /*base code*/
+// .animated {
+//   -webkit-animation-duration: 1s;
+//   animation-duration: 1s;
+//   -webkit-animation-fill-mode: both;
+//   animation-fill-mode: both;
+// }
+// .animated.infinite {
+//   -webkit-animation-iteration-count: infinite;
+//   animation-iteration-count: infinite;
+// }
+// .animated.hinge {
+//   -webkit-animation-duration: 2s;
+//   animation-duration: 2s;
+// }
+// /*the animation definition*/
+// @-webkit-keyframes tada {
+//   0% {
+//     -webkit-transform: scale3d(1, 1, 1);
+//     transform: scale3d(1, 1, 1)
+//   }
+//   10%,
+//   20% {
+//     -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+//     transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+//   }
+//   30%,
+//   50%,
+//   70%,
+//   90% {
+//     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+//     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+//   }
+//   40%,
+//   60%,
+//   80% {
+//     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+//     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+//   }
+//   100% {
+//     -webkit-transform: scale3d(1, 1, 1);
+//     transform: scale3d(1, 1, 1)
+//   }
+// }
+// @keyframes tada {
+//   0% {
+//     -webkit-transform: scale3d(1, 1, 1);
+//     -ms-transform: scale3d(1, 1, 1);
+//     transform: scale3d(1, 1, 1)
+//   }
+//   10%,
+//   20% {
+//     -webkit-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+//     -ms-transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg);
+//     transform: scale3d(.9, .9, .9) rotate3d(0, 0, 1, -3deg)
+//   }
+//   30%,
+//   50%,
+//   70%,
+//   90% {
+//     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+//     -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg);
+//     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, 3deg)
+//   }
+//   40%,
+//   60%,
+//   80% {
+//     -webkit-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+//     -ms-transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg);
+//     transform: scale3d(1.1, 1.1, 1.1) rotate3d(0, 0, 1, -3deg)
+//   }
+//   100% {
+//     -webkit-transform: scale3d(1, 1, 1);
+//     -ms-transform: scale3d(1, 1, 1);
+//     transform: scale3d(1, 1, 1)
+//   }
+// }
+// .tada {
+//   -webkit-animation-name: tada;
+//   animation-name: tada
+// }

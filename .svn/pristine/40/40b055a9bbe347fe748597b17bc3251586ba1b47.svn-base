@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <title>jcchat</title>
+  </head>
+  <!-- oc6Hd1GNeiFgtAqbKC76fHea-j-w oc6Hd1BHJF55T1jIWr2eC2AEYoUQ oc6Hd1NKOxJRB6o1CdWVbRsAoqow-->
+  <body ondragstart="return false" ondrop="return false">
+             <!-- <app id="app" 
+                  jc-chat-port="https://www.china-cms.com"
+                  from-user-id="oc6Hd1BBDYwqyScFG9KHPjuHsy0s"
+                  can-build-group="1"
+                  board-url="http://122.225.78.66:8003/whiteboard/"
+                  qr-code="https://192.168.0.104/images/mmbizopen_qrcode.png"></app> -->
+                  <app  id="app"  
+                        jc-chat-port="https://www.china-cms.com" 
+                        qr-code="https://192.168.0.104/images/mmbizopen_qrcode.png"
+                        board-url="http://localhost:8080"></app>
+    <!-- built files will be auto injected -->
+  </body>
+</html>

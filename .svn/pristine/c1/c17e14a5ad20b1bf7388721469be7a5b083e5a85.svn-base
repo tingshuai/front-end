@@ -1,0 +1,25 @@
+/* 垂直居中 */
+.mix-flex-y-center () {
+    display: flex;
+    align-items: center;
+  }
+  
+  /* 水平居中 */
+  .mix-flex-x-center () {
+    display: flex;
+    justify-content: center;
+  }
+  
+  /* 水平垂直居中 */
+  .mix-flex-center() {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  /* 超出部分出省略号 */
+  .mix-text-overflow() {
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+  }

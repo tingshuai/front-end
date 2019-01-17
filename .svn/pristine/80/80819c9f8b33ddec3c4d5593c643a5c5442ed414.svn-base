@@ -1,0 +1,238 @@
+//添加用户
+<template>
+  <div class="add-user clearfix">
+    <!-- 内容 -->
+    <div class="left pull-man-l">
+      <h1>可添加成员</h1>
+      <!-- search -->
+      <el-input placeholder="请输入内容" prefix-icon="el-icon-search" size="small" v-model="searchData" @change="search">
+      </el-input>
+      <!-- 勾选列表 -->
+      <div class="user-list">
+        <div class="user-list-item clearfix" v-for="item in userData">
+          <img :src="item.headImgUrl||(getUrl()+'/images/headimg.png')" alt="" class="left">
+          <p class="left" :title="item.username">{{item.username}}</p>
+          <el-checkbox class="right" v-model="item.isCheck" :disabled="item.noCheck||getfromUser.fromUserId===item.openId"
+            @change="userCheck(item)"></el-checkbox>
+        </div>
+      </div>
+
+    </div>
+    <div class="right pull-man-r">
+      <h1>已添加列表</h1>
+      <div class="user-list">
+        <div class="user-list-item clearfix" v-for="item in selectData">
+          <img :src="item.headImgUrl||(getUrl()+'/images/headimg.png')" alt="" class="left">
+          <p class="left" :title="item.username">{{item.username}}</p>
+          <el-checkbox v-if="type!=='pull'" class="right" label="可拉人" v-model="item.isPull" :disabled="getfromUser.fromUserId===item.openId"></el-checkbox>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+<script>
+  import {
+    mapGetters
+  } from 'vuex';
+  import {
+    getUsersSelector,
+    chatGroups
+  } from '../../api/index.js'
+  export default {
+    props: ['ruleForm', 'type', 'openIdsData'],
+    computed: {
+      ...mapGetters(['getfromUser', 'getGroupData']),
+    },
+    data() {
+      return {
+        searchData: '',
+        userData: [],
+        selectData: [],
+        _openIdsData: []
+      }
+    },
+    methods: {
+      resetData() {
+        if (this.type === 'edit') {
+          this.dataInit(this.openIdsData);
+          return;
+        } else if (this.type === 'add') {
+          this.selectData = [];
+          this._openIdsData = this.userData = this.openIdsData;
+          this.userData.forEach(data => {
+            this.$set(data, 'isCheck', false);
+            this.$set(data, 'isPull', false);
+            if (data.openId === this.getfromUser.fromUserId) {
+              this.$set(data, 'isPull', true);
+              this.$set(data, 'isCheck', true);
+              this.selectData.push(data);
+              let temp = []
+              this.selectData.forEach((val,i,array)=>{//去重.....
+                if(temp.indexOf(array[i]) == -1){
+                    temp.push(array[i]);
+                }
+              })
+              this.selectData = temp;
+              return;
+            }
+            if (this.ruleForm.openIds.indexOf(data.openId) !== -1) {
+              this.$set(data, 'isCheck', true);
+              if (this.ruleForm.addMemberOpenIds.indexOf(data.openId) !== -1) {
+                this.$set(data, 'isPull', true);
+              }
+              this.selectData.push(data);
+            }
+          })
+        } else {
+          getUsersSelector({
+            Vue: this,
+            params: {
+              groupId: this.getGroupData.parentId == 0 ? null : this.getGroupData.parentId
+            }
+          }).then(data => {
+            this.dataInit(data.data)
+          })
+        }
+
+      },
+      getUrl() { //获取资源访问地址
+        return localStorage.getItem('jcChatPort');
+      },
+      dataInit(arr) {
+        this._openIdsData = this.userData = arr;
+        let selectData = [];
+        this.userData.forEach(data => {
+          let index = this.getGroupData.groupUsers.findIndex(item => {
+            return data.openId === item.openId;
+          })
+          if (index !== -1) {
+            selectData.push(data);
+            if (this.type === 'pull') {
+              this.$set(data, 'noCheck', true);
+            }
+          } //已添加人员
+          this.$set(data, 'isCheck', index == -1 ? false : true); //设置勾选状态
+          if (this.getGroupData.addMemberOpenIds.indexOf(data.openId) != -1) { //筛选可拉人成员
+            this.$set(data, 'isPull', true);
+          } else {
+            this.$set(data, 'isPull', false);
+          }
+        });
+        this.selectData = selectData;
+      },
+      save() { //保存提交数据
+        if (this.type !== 'pull') {
+          this.ruleForm.openIds = [];
+          this.ruleForm.addMemberOpenIds = [];
+          this.selectData.forEach(item => {
+            if (item.isPull) {
+              this.ruleForm.addMemberOpenIds.push(item.openId);
+            }
+            this.ruleForm.openIds.push(item.openId);
+          })
+        } else {
+          let openIds = [];
+          this.selectData.forEach(item => {
+            openIds.push(item.openId);
+          })
+          chatGroups({
+            params: {
+              openIds: openIds,
+              managerId: this.getGroupData.managerId,
+              addMemberOpenIds: this.getGroupData.addMemberOpenIds,
+              parentId: this.getGroupData.parentId
+            },
+            Vue: this
+          }, this.getGroupData.groupId).then(data => {
+            this.$message({
+              message: data.message,
+              type: 'success'
+            });
+          })
+        }
+      },
+      userCheck(data) { //选择成员
+        this.$set(data, 'isPull', false);
+        if (data.isCheck) {
+          this.selectData.splice(0, 0, data);
+        } else {
+          let index = this.selectData.findIndex(item => {
+            return data.openId === item.openId;
+          })
+          this.selectData.splice(index, 1);
+        }
+      },
+      search() { //
+        let _arr = this._openIdsData;
+        let reg = new RegExp(this.searchData);
+        this.userData = _arr.filter(data => {
+          return reg.test(data.username);
+        });
+      }
+    }
+  }
+
+</script>
+<style lang="less">
+  @headerbgColor: rgba(39, 44, 52, 1);
+
+  .add-user {
+    margin-bottom: 30px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      width: 1px;
+      background-color: #E4E7ED;
+      left: 50%;
+      top: 0;
+      margin-left: -0.5px;
+    }
+
+    .pull-man-l,
+    .pull-man-r {
+      width: 50%;
+      box-sizing: border-box;
+      padding: 0 50px 15px;
+
+      h1 {
+        padding-bottom: 10px;
+      }
+    }
+
+    .pull-man-r {
+      h1 {
+        border-bottom: 1px solid #E4E7ED;
+      }
+    }
+
+    .user-list {
+      max-height: 400px;
+      overflow: auto;
+      margin-top: 15px;
+    }
+
+    .user-list-item {
+      height: 50px;
+      padding: 5px 15px;
+      line-height: 50px;
+      border-bottom: 1px solid #E4E7ED;
+      margin-top: 2px;
+
+      img {
+        width: 50px;
+        margin-right: 15px;
+      }
+
+      p {
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        max-width: 150px;
+      }
+    }
+  }
+
+</style>
